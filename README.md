@@ -20,3 +20,28 @@ export default function RootLayout({
   );
 }
 ```
+## 字体设置与图像优化
+### 配置字体
+在/app/ui文件夹中新建一个名为fonts.ts的文件
+```tsx
+import { Inter } from 'next/font/google';
+export const inter = Inter({ subsets: ['latin'] });
+
+```
+### 应用字体
+```tsx
+import "@/app/ui/global.css"
+import { inter } from "@/app/ui/fonts";
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className={`${inter.className} antialiased` }>{children}</body>
+    </html>
+  );
+}
+```
+### 图片优化
